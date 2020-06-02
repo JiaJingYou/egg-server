@@ -16,7 +16,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1591105054806_8169';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = ['errorHandler'];
   config.swaggerdoc = {
     dirScanner: './app/controller',
     apiInfo: {
@@ -32,7 +32,6 @@ module.exports = appInfo => {
     routerMap: true, // 自动注册路由
     enable: true,
   }
-
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
