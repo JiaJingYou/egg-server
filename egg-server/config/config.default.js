@@ -31,6 +31,20 @@ module.exports = appInfo => {
     // enableValidate: true, // 自动接口校验，
     routerMap: true, // 自动注册路由
     enable: true,
+  };
+  config.mongoose = {
+    url: 'mongodb://127.0.0.1:27017/egg_x',
+    options: {
+      // useMongoClient: true,
+      autoReconnect: true,
+      reconnectTries: Number.MAX_VALUE,
+      bufferMaxEntries: 0,
+    },
+  };
+  config.jwt = {
+    secret: 'Great4-M',
+    enable: true, // default is false
+    match: /^\/api/, // optional
   }
   // add your user config here
   const userConfig = {

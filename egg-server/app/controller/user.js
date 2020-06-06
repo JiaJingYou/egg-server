@@ -17,8 +17,13 @@ class UserController extends Controller {
     * @response 200 baseResponse 创建成功
     */
     async create() {
-        const { ctx } = this
-        ctx.body = 'user ctrl'
+        const { ctx, service } = this
+        ctx.validate(ctx.rule.createUserRequest)
+        const payload = ctx.request.body || {}
+        // 调⽤ Service 进⾏业务处理
+        const res = await service.user.create(payload)
+        // 设置响应内容和响应状态码
+        ctx.helper.success({ctx, res})
     }
 }
 module.exports = UserController
